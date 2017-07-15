@@ -1,0 +1,11 @@
+{
+  "name": "mui-simple-dialogs",
+  "version": "0.1.0",
+  "main": "index.js",
+  "license": "MIT",
+  "peerDependencies": {
+    "material-ui": "^0.18.6",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  }
+}
