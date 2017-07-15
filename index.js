@@ -29747,13 +29747,13 @@ var _class = function (_Component) {
           width = _props.width;
 
       var _arrify$filter = (0, _arrify2.default)(children).filter(function (c) {
-        return c.type.displayName === 'DialogContent';
+        return c.type.displayName === 'DialogContent' || c.type.name === 'DialogContent';
       }),
           _arrify$filter2 = _slicedToArray(_arrify$filter, 1),
           content = _arrify$filter2[0];
 
       var _arrify$filter3 = (0, _arrify2.default)(children).filter(function (c) {
-        return c.type.displayName === 'DialogActions';
+        return c.type.displayName === 'DialogActions' || c.type.name === 'DialogActions';
       }),
           _arrify$filter4 = _slicedToArray(_arrify$filter3, 1),
           actions = _arrify$filter4[0];
