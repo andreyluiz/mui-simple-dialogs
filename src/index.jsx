@@ -30,6 +30,7 @@ const show = (dialog) => {
 const infoOptions = {
   buttonLabel: 'OK',
   width: 500,
+  theme: null,
 };
 
 export const showInfo = (title, body, options = {}) => {
@@ -42,7 +43,7 @@ export const showInfo = (title, body, options = {}) => {
     }
     render() {
       return (
-        <Wrapper title={title} width={dialogOptions.width} ref={(node) => { this.dlg = node; }}>
+        <Wrapper title={title} width={dialogOptions.width} theme={options.theme} ref={(node) => { this.dlg = node; }}>
           <Content>{body}</Content>
           <Actions>
             <FlatButton
@@ -67,6 +68,7 @@ const confirmOptions = {
   confirmButtonRaised: false,
   confirmButtonColor: '#5D99CA',
   width: 500,
+  theme: null,
 };
 
 export const showConfirm = (title, body, options = {}) => {
@@ -80,7 +82,7 @@ export const showConfirm = (title, body, options = {}) => {
     render() {
       const PrimaryButton = dialogOptions.confirmButtonRaised ? RaisedButton : FlatButton;
       return (
-        <Wrapper title={title} width={dialogOptions.width} ref={(node) => { this.dlg = node; }}>
+        <Wrapper title={title} width={dialogOptions.width} theme={options.theme} ref={(node) => { this.dlg = node; }}>
           <Content>
             <div>{body}</div>
           </Content>

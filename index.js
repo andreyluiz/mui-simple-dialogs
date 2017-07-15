@@ -13235,7 +13235,8 @@ var show = function show(dialog) {
 
 var infoOptions = {
   buttonLabel: 'OK',
-  width: 500
+  width: 500,
+  theme: null
 };
 
 var showInfo = exports.showInfo = function showInfo(title, body) {
@@ -13263,7 +13264,7 @@ var showInfo = exports.showInfo = function showInfo(title, body) {
 
         return _react2.default.createElement(
           _components.Wrapper,
-          { title: title, width: dialogOptions.width, ref: function ref(node) {
+          { title: title, width: dialogOptions.width, theme: options.theme, ref: function ref(node) {
               _this2.dlg = node;
             } },
           _react2.default.createElement(
@@ -13298,7 +13299,8 @@ var confirmOptions = {
   confirmButtonLabel: 'Confirm',
   confirmButtonRaised: false,
   confirmButtonColor: '#5D99CA',
-  width: 500
+  width: 500,
+  theme: null
 };
 
 var showConfirm = exports.showConfirm = function showConfirm(title, body) {
@@ -13327,7 +13329,7 @@ var showConfirm = exports.showConfirm = function showConfirm(title, body) {
         var PrimaryButton = dialogOptions.confirmButtonRaised ? _RaisedButton2.default : _FlatButton2.default;
         return _react2.default.createElement(
           _components.Wrapper,
-          { title: title, width: dialogOptions.width, ref: function ref(node) {
+          { title: title, width: dialogOptions.width, theme: options.theme, ref: function ref(node) {
               _this4.dlg = node;
             } },
           _react2.default.createElement(
@@ -29744,7 +29746,8 @@ var _class = function (_Component) {
       var _props = this.props,
           children = _props.children,
           title = _props.title,
-          width = _props.width;
+          width = _props.width,
+          theme = _props.theme;
 
       var _arrify$filter = (0, _arrify2.default)(children).filter(function (c) {
         return c.type.displayName === 'DialogContent' || c.type.name === 'DialogContent';
@@ -29758,7 +29761,7 @@ var _class = function (_Component) {
           _arrify$filter4 = _slicedToArray(_arrify$filter3, 1),
           actions = _arrify$filter4[0];
 
-      var muiTheme = (0, _getMuiTheme2.default)();
+      var muiTheme = (0, _getMuiTheme2.default)(theme);
 
       return _react2.default.createElement(
         _MuiThemeProvider2.default,

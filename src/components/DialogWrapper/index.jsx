@@ -9,6 +9,7 @@ type Props = {
   title: String,
   width: number,
   children: any,
+  theme: ?Object,
 }
 
 export default class extends Component {
@@ -24,12 +25,12 @@ export default class extends Component {
   }
 
   render() {
-    const { children, title, width } = this.props;
+    const { children, title, width, theme } = this.props;
 
     const [content] = arrify(children).filter(c => c.type.displayName === 'DialogContent' || c.type.name === 'DialogContent');
     const [actions] = arrify(children).filter(c => c.type.displayName === 'DialogActions' || c.type.name === 'DialogActions');
 
-    const muiTheme = getMuiTheme(/*theme*/);
+    const muiTheme = getMuiTheme(theme);
 
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
