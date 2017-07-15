@@ -9,6 +9,10 @@
     "material-ui",
     "material-design"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andreyluiz/mui-simple-dialogs.git"
+  },
   "version": "0.3.0",
   "homepage": "https://github.com/andreyluiz/mui-simple-dialogs",
   "bugs": {
