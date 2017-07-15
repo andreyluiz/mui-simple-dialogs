@@ -39,9 +39,6 @@
   },
   "dependencies": {
     "arrify": "^1.0.1",
-    "es6-defer": "^1.0.1",
-    "material-ui": "0.17.4",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "es6-defer": "^1.0.1"
   }
 }
