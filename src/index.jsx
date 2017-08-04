@@ -96,7 +96,7 @@ export const showConfirm = (title, body, options = {}) => {
               }}
             />
             <PrimaryButton
-              primary
+              primary={dialogOptions.confirmButtonColor ? false : true}
               labelColor={dialogOptions.confirmButtonRaised ? '#FFFFFF' : null}
               style={{ marginLeft: 8 }}
               backgroundColor={dialogOptions.confirmButtonRaised ? dialogOptions.confirmButtonColor : null}
