@@ -13353,7 +13353,7 @@ var showConfirm = exports.showConfirm = function showConfirm(title, body) {
               }
             }),
             _react2.default.createElement(PrimaryButton, {
-              primary: dialogOptions.confirmButtonColor ? false : true,
+              primary: dialogOptions.confirmButtonColor === '#5D99CA',
               labelColor: dialogOptions.confirmButtonRaised ? '#FFFFFF' : null,
               style: { marginLeft: 8 },
               backgroundColor: dialogOptions.confirmButtonRaised ? dialogOptions.confirmButtonColor : null,
