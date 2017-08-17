@@ -10,6 +10,7 @@ type Props = {
   width: number,
   children: any,
   theme: ?Object,
+  id: String,
 }
 
 export default class extends Component {
@@ -25,7 +26,7 @@ export default class extends Component {
   }
 
   render() {
-    const { children, title, width, theme } = this.props;
+    const { children, title, width, theme, id } = this.props;
 
     const [content] = arrify(children).filter(c => c.type.displayName === 'DialogContent' || c.type.name === 'DialogContent');
     const [actions] = arrify(children).filter(c => c.type.displayName === 'DialogActions' || c.type.name === 'DialogActions');
@@ -35,6 +36,7 @@ export default class extends Component {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <Dialog
+          id={id}
           open={this.state.open}
           actions={arrify(actions.props.children)}
           title={title}

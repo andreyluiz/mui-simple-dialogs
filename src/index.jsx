@@ -31,6 +31,7 @@ const infoOptions = {
   buttonLabel: 'OK',
   width: 500,
   theme: null,
+  id: 'info-dialog'
 };
 
 export const showInfo = (title, body, options = {}) => {
@@ -43,10 +44,11 @@ export const showInfo = (title, body, options = {}) => {
     }
     render() {
       return (
-        <Wrapper title={title} width={dialogOptions.width} theme={options.theme} ref={(node) => { this.dlg = node; }}>
+        <Wrapper id={dialogOptions.id} title={title} width={dialogOptions.width} theme={options.theme} ref={(node) => { this.dlg = node; }}>
           <Content>{body}</Content>
           <Actions>
             <FlatButton
+              id="ok-action"
               primary
               label={dialogOptions.buttonLabel}
               onClick={() => {
@@ -69,6 +71,7 @@ const confirmOptions = {
   confirmButtonColor: '#5D99CA',
   width: 500,
   theme: null,
+  id: 'confirm-dialog',
 };
 
 export const showConfirm = (title, body, options = {}) => {
@@ -82,12 +85,13 @@ export const showConfirm = (title, body, options = {}) => {
     render() {
       const PrimaryButton = dialogOptions.confirmButtonRaised ? RaisedButton : FlatButton;
       return (
-        <Wrapper title={title} width={dialogOptions.width} theme={options.theme} ref={(node) => { this.dlg = node; }}>
+        <Wrapper id={dialogOptions.id} title={title} width={dialogOptions.width} theme={options.theme} ref={(node) => { this.dlg = node; }}>
           <Content>
             <div>{body}</div>
           </Content>
           <Actions>
             <FlatButton
+              id="cancel-action"
               primary
               label={dialogOptions.cancelButtonLabel}
               onClick={() => {
@@ -96,6 +100,7 @@ export const showConfirm = (title, body, options = {}) => {
               }}
             />
             <PrimaryButton
+              id="confirm-action"
               primary={dialogOptions.confirmButtonColor === '#5D99CA'}
               labelColor={dialogOptions.confirmButtonRaised ? '#FFFFFF' : null}
               style={{ marginLeft: 8 }}
