@@ -344,45 +344,43 @@ var emptyFunction = __webpack_require__(14);
 var warning = emptyFunction;
 
 if (process.env.NODE_ENV !== 'production') {
-  (function () {
-    var printWarning = function printWarning(format) {
-      for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-        args[_key - 1] = arguments[_key];
+  var printWarning = function printWarning(format) {
+    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+      args[_key - 1] = arguments[_key];
+    }
+
+    var argIndex = 0;
+    var message = 'Warning: ' + format.replace(/%s/g, function () {
+      return args[argIndex++];
+    });
+    if (typeof console !== 'undefined') {
+      console.error(message);
+    }
+    try {
+      // --- Welcome to debugging React ---
+      // This error was thrown as a convenience so that you can use this stack
+      // to find the callsite that caused this warning to fire.
+      throw new Error(message);
+    } catch (x) {}
+  };
+
+  warning = function warning(condition, format) {
+    if (format === undefined) {
+      throw new Error('`warning(condition, format, ...args)` requires a warning ' + 'message argument');
+    }
+
+    if (format.indexOf('Failed Composite propType: ') === 0) {
+      return; // Ignore CompositeComponent proptype check.
+    }
+
+    if (!condition) {
+      for (var _len2 = arguments.length, args = Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
+        args[_key2 - 2] = arguments[_key2];
       }
 
-      var argIndex = 0;
-      var message = 'Warning: ' + format.replace(/%s/g, function () {
-        return args[argIndex++];
-      });
-      if (typeof console !== 'undefined') {
-        console.error(message);
-      }
-      try {
-        // --- Welcome to debugging React ---
-        // This error was thrown as a convenience so that you can use this stack
-        // to find the callsite that caused this warning to fire.
-        throw new Error(message);
-      } catch (x) {}
-    };
-
-    warning = function warning(condition, format) {
-      if (format === undefined) {
-        throw new Error('`warning(condition, format, ...args)` requires a warning ' + 'message argument');
-      }
-
-      if (format.indexOf('Failed Composite propType: ') === 0) {
-        return; // Ignore CompositeComponent proptype check.
-      }
-
-      if (!condition) {
-        for (var _len2 = arguments.length, args = Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
-          args[_key2 - 2] = arguments[_key2];
-        }
-
-        printWarning.apply(undefined, [format].concat(args));
-      }
-    };
-  })();
+      printWarning.apply(undefined, [format].concat(args));
+    }
+  };
 }
 
 module.exports = warning;
@@ -10939,18 +10937,11 @@ module.exports = traverseAllChildren;
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
  *
  * @typechecks
  */
@@ -13186,9 +13177,9 @@ var _reactDom = __webpack_require__(31);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _es6Defer = __webpack_require__(263);
+var _defer = __webpack_require__(263);
 
-var _es6Defer2 = _interopRequireDefault(_es6Defer);
+var _defer2 = _interopRequireDefault(_defer);
 
 var _FlatButton = __webpack_require__(264);
 
@@ -13236,7 +13227,8 @@ var show = function show(dialog) {
 var infoOptions = {
   buttonLabel: 'OK',
   width: 500,
-  theme: null
+  theme: null,
+  id: 'info-dialog'
 };
 
 var showInfo = exports.showInfo = function showInfo(title, body) {
@@ -13252,7 +13244,7 @@ var showInfo = exports.showInfo = function showInfo(title, body) {
 
       var _this = _possibleConstructorReturn(this, (DialogContainer.__proto__ || Object.getPrototypeOf(DialogContainer)).call(this));
 
-      _this.deferred = (0, _es6Defer2.default)();
+      _this.deferred = (0, _defer2.default)();
       _this.promise = _this.deferred.promise;
       return _this;
     }
@@ -13264,7 +13256,7 @@ var showInfo = exports.showInfo = function showInfo(title, body) {
 
         return _react2.default.createElement(
           _components.Wrapper,
-          { title: title, width: dialogOptions.width, theme: options.theme, ref: function ref(node) {
+          { id: dialogOptions.id, title: title, width: dialogOptions.width, theme: options.theme, ref: function ref(node) {
               _this2.dlg = node;
             } },
           _react2.default.createElement(
@@ -13276,6 +13268,7 @@ var showInfo = exports.showInfo = function showInfo(title, body) {
             _components.Actions,
             null,
             _react2.default.createElement(_FlatButton2.default, {
+              id: 'ok-action',
               primary: true,
               label: dialogOptions.buttonLabel,
               onClick: function onClick() {
@@ -13300,7 +13293,8 @@ var confirmOptions = {
   confirmButtonRaised: false,
   confirmButtonColor: '#5D99CA',
   width: 500,
-  theme: null
+  theme: null,
+  id: 'confirm-dialog'
 };
 
 var showConfirm = exports.showConfirm = function showConfirm(title, body) {
@@ -13316,7 +13310,7 @@ var showConfirm = exports.showConfirm = function showConfirm(title, body) {
 
       var _this3 = _possibleConstructorReturn(this, (DialogContainer.__proto__ || Object.getPrototypeOf(DialogContainer)).call(this));
 
-      _this3.deferred = (0, _es6Defer2.default)();
+      _this3.deferred = (0, _defer2.default)();
       _this3.promise = _this3.deferred.promise;
       return _this3;
     }
@@ -13329,7 +13323,7 @@ var showConfirm = exports.showConfirm = function showConfirm(title, body) {
         var PrimaryButton = dialogOptions.confirmButtonRaised ? _RaisedButton2.default : _FlatButton2.default;
         return _react2.default.createElement(
           _components.Wrapper,
-          { title: title, width: dialogOptions.width, theme: options.theme, ref: function ref(node) {
+          { id: dialogOptions.id, title: title, width: dialogOptions.width, theme: options.theme, ref: function ref(node) {
               _this4.dlg = node;
             } },
           _react2.default.createElement(
@@ -13345,6 +13339,7 @@ var showConfirm = exports.showConfirm = function showConfirm(title, body) {
             _components.Actions,
             null,
             _react2.default.createElement(_FlatButton2.default, {
+              id: 'cancel-action',
               primary: true,
               label: dialogOptions.cancelButtonLabel,
               onClick: function onClick() {
@@ -13353,6 +13348,7 @@ var showConfirm = exports.showConfirm = function showConfirm(title, body) {
               }
             }),
             _react2.default.createElement(PrimaryButton, {
+              id: 'confirm-action',
               primary: dialogOptions.confirmButtonColor === '#5D99CA',
               labelColor: dialogOptions.confirmButtonRaised ? '#FFFFFF' : null,
               style: { marginLeft: 8 },
@@ -25472,20 +25468,19 @@ module.exports = ReactDOMInvalidARIAHook;
 
 /***/ }),
 /* 263 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (immutable) */ __webpack_exports__["default"] = defer;
-/**
- * Defer returns a deferred object. It contains a promise and a method to
- * resolve it or reject it.
- *
- * @return {Object}
- */
-function defer() {
-  let _resolve, _reject;
-  let promise = new Promise((resolve, reject) => {
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+exports.default = function () {
+  var _resolve = void 0,
+      _reject = void 0;
+  var promise = new Promise(function (resolve, reject) {
     _resolve = resolve;
     _reject = reject;
   });
@@ -25504,8 +25499,7 @@ function defer() {
       enumerable: true
     }
   }));
-}
-
+};
 
 /***/ }),
 /* 264 */
@@ -29747,7 +29741,8 @@ var _class = function (_Component) {
           children = _props.children,
           title = _props.title,
           width = _props.width,
-          theme = _props.theme;
+          theme = _props.theme,
+          id = _props.id;
 
       var _arrify$filter = (0, _arrify2.default)(children).filter(function (c) {
         return c.type.displayName === 'DialogContent' || c.type.name === 'DialogContent';
@@ -29769,6 +29764,7 @@ var _class = function (_Component) {
         _react2.default.createElement(
           _Dialog2.default,
           {
+            id: id,
             open: this.state.open,
             actions: (0, _arrify2.default)(actions.props.children),
             title: title,
@@ -34222,7 +34218,7 @@ module.exports = exports['default'];
       , opera: t
       , version: versionIdentifier || getFirstMatch(/(?:opera|opr|opios)[\s\/](\d+(\.\d+)?)/i)
       }
-    } else if (/opr|opios/i.test(ua)) {
+    } else if (/opr\/|opios/i.test(ua)) {
       // a new Opera
       result = {
         name: 'Opera'
@@ -34517,7 +34513,7 @@ module.exports = exports['default'];
         default: return undefined
       }
     }
-    
+
     // OS version extraction
     var osVersion = '';
     if (result.windows) {
@@ -34942,7 +34938,7 @@ var alternativeProps = {
   order: 'msFlexOrder',
   flexGrow: 'msFlexPositive',
   flexShrink: 'msFlexNegative',
-  flexBasis: 'msPreferredSize'
+  flexBasis: 'msFlexPreferredSize'
 };
 
 function flexboxIE(property, value, style, _ref) {
@@ -35325,7 +35321,7 @@ var alternativeProps = {
   order: 'msFlexOrder',
   flexGrow: 'msFlexPositive',
   flexShrink: 'msFlexNegative',
-  flexBasis: 'msPreferredSize'
+  flexBasis: 'msFlexPreferredSize'
 };
 
 function flexboxIE(property, value, style) {

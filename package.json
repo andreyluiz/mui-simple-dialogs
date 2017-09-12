@@ -31,8 +31,7 @@
   "peerDependencies": {
     "material-ui": "^0.17.4",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "react-tap-event-plugin": "^2.0.1"
+    "react-dom": "^15.6.1"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
@@ -42,7 +41,6 @@
     "webpack": "^3.2.0"
   },
   "dependencies": {
-    "arrify": "^1.0.1",
-    "es6-defer": "^1.0.1"
+    "arrify": "^1.0.1"
   }
 }
