@@ -1,4 +1,9 @@
 
+0.9.0 / 2017-09-14 
+==================
+
+ * Reduce bundle size by not bundling thirdy party code.
+
 0.8.0 / 2017-09-12 
 ==================
 
