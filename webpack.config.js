@@ -17,6 +17,15 @@ module.exports = {
       }
     ]
   },
+  externals: {
+    react: 'React',
+    'react-dom': 'ReactDOM',
+    'material-ui/Dialog': 'Dialog',
+    'material-ui/styles/MuiThemeProvider': 'MuiThemeProvider',
+    'material-ui/styles/getMuiTheme': 'getMuitTheme',
+    'material-ui/FlatButton': 'FlatButton',
+    'material-ui/RaisedButton': 'RaisedButton'
+  },
   resolve: {
     extensions: ['.js', '.jsx']
   },
