@@ -3,7 +3,8 @@ import Dialog from 'material-ui/Dialog';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import arrify from 'arrify';
-// import theme from '../../../../theme';
+import DialogActions from '../DialogActions';
+import DialogContent from '../DialogContent';
 
 type Props = {
   title: String,
@@ -28,8 +29,8 @@ export default class extends Component {
   render() {
     const { children, title, width, theme, id } = this.props;
 
-    const [content] = arrify(children).filter(c => c.type.displayName === 'DialogContent' || c.type.name === 'DialogContent');
-    const [actions] = arrify(children).filter(c => c.type.displayName === 'DialogActions' || c.type.name === 'DialogActions');
+    const [content] = arrify(children).filter(c => c.type === DialogContent);
+    const [actions] = arrify(children).filter(c => c.type === DialogActions);
 
     const muiTheme = getMuiTheme(theme);
 
