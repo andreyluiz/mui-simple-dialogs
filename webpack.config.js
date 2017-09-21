@@ -18,13 +18,13 @@ module.exports = {
     ]
   },
   externals: {
-    react: 'React',
-    'react-dom': 'ReactDOM',
-    'material-ui/Dialog': 'Dialog',
-    'material-ui/styles/MuiThemeProvider': 'MuiThemeProvider',
-    'material-ui/styles/getMuiTheme': 'getMuitTheme',
-    'material-ui/FlatButton': 'FlatButton',
-    'material-ui/RaisedButton': 'RaisedButton'
+    react: 'react',
+    'react-dom': 'react-dom',
+    'material-ui/Dialog': 'material-ui/Dialog',
+    'material-ui/styles/MuiThemeProvider': 'material-ui/styles/MuiThemeProvider',
+    'material-ui/styles/getMuiTheme': 'material-ui/styles/getMuiTheme',
+    'material-ui/FlatButton': 'material-ui/FlatButton',
+    'material-ui/RaisedButton': 'material-ui/RaisedButton',
   },
   resolve: {
     extensions: ['.js', '.jsx']

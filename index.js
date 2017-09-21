@@ -67,7 +67,7 @@
 /* 0 */
 /***/ (function(module, exports) {
 
-module.exports = require("React");
+module.exports = require("react");
 
 /***/ }),
 /* 1 */
@@ -288,7 +288,7 @@ var showConfirm = exports.showConfirm = function showConfirm(title, body) {
 /* 2 */
 /***/ (function(module, exports) {
 
-module.exports = require("ReactDOM");
+module.exports = require("react-dom");
 
 /***/ }),
 /* 3 */
@@ -329,13 +329,13 @@ exports.default = function () {
 /* 4 */
 /***/ (function(module, exports) {
 
-module.exports = require("FlatButton");
+module.exports = require("material-ui/FlatButton");
 
 /***/ }),
 /* 5 */
 /***/ (function(module, exports) {
 
-module.exports = require("RaisedButton");
+module.exports = require("material-ui/RaisedButton");
 
 /***/ }),
 /* 6 */
@@ -585,19 +585,19 @@ exports.default = _class;
 /* 10 */
 /***/ (function(module, exports) {
 
-module.exports = require("Dialog");
+module.exports = require("material-ui/Dialog");
 
 /***/ }),
 /* 11 */
 /***/ (function(module, exports) {
 
-module.exports = require("MuiThemeProvider");
+module.exports = require("material-ui/styles/MuiThemeProvider");
 
 /***/ }),
 /* 12 */
 /***/ (function(module, exports) {
 
-module.exports = require("getMuitTheme");
+module.exports = require("material-ui/styles/getMuiTheme");
 
 /***/ }),
 /* 13 */
