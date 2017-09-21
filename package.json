@@ -30,8 +30,8 @@
   },
   "peerDependencies": {
     "material-ui": "^0.17.4",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
@@ -39,8 +39,8 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
     "material-ui": "^0.17.4",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
     "webpack": "^3.2.0"
   },
   "dependencies": {
