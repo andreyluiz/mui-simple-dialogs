@@ -574,7 +574,9 @@ var _class = function (_Component) {
             open: this.state.open,
             actions: (0, _arrify2.default)(actions.props.children),
             title: title,
-            contentStyle: { width: width }
+            contentStyle: { width: width, zIndex: 10001 },
+            overlayStyle: { zIndex: 10000 },
+            style: { zIndex: 10002 }
           },
           _react2.default.cloneElement(content, { ref: 'content' })
         )

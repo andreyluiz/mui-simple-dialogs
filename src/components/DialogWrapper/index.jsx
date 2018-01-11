@@ -41,7 +41,9 @@ export default class extends Component {
           open={this.state.open}
           actions={arrify(actions.props.children)}
           title={title}
-          contentStyle={{ width }}
+          contentStyle={{ width, zIndex: 10001 }}
+          overlayStyle={{ zIndex: 10000 }}
+          style={{ zIndex: 10002 }}
         >
           {React.cloneElement(content, { ref: 'content' })}
         </Dialog>
