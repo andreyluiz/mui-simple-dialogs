@@ -1,3 +1,7 @@
+# ⚠️ Deprecation warning
+
+This package is very old and has not been upgraded to the newest version of MUI. So I'm archiving the repo and deprecating the NPM package.
+
 # mui-simple-dialogs
 Turning MUI dialogs easier to use.
 
